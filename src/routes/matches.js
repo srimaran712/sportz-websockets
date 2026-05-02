@@ -27,10 +27,11 @@ matchesRouter.get('/', async(req, res) => {
 
 matchesRouter.post('/',async (req, res) => {
         const parsed = createMatchSchema.safeParse(req.body);
-        const {data:{startTime, endTime,homeScore,awayScore}} = parsed;
+       
         if (!parsed.success) {
             return res.status(400).json({ errors: parsed.error.issues });
         }
+         const {data:{startTime, endTime,homeScore,awayScore}} = parsed;
 
     try {
 
